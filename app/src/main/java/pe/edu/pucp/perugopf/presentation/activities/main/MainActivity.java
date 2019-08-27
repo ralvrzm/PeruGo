@@ -1,7 +1,10 @@
-package pe.edu.pucp.perugopf;
+package pe.edu.pucp.perugopf.presentation.activities.main;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
+import pe.edu.pucp.perugopf.R;
 
 public class MainActivity extends AppCompatActivity {
 
