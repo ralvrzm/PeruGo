@@ -15,7 +15,7 @@
     <string name="register">Registrar</string>
     <string name="register_button">Registrarse</string>
     <string name="sign_out">logout</string>
-    <string name="no_posts">No hay posts</string>
+    <string name="no_events">No hay eventos</string>
     <string name="save">Guardar</string>
     <string name="enter_title">Ingrese título</string>
     <string name="hint_content">¿Qué estas pensando?</string>

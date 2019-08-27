@@ -8,17 +8,17 @@
     tools:context=".presentation.activities.events_firestore.EventsFirestoreActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewPosts"
+        android:id="@+id/recyclerViewEvents"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="true" />
 
     <TextView
-        android:id="@+id/tv_no_posts"
+        android:id="@+id/tv_no_events"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="@string/no_posts"
+        android:text="@string/no_events"
         android:textColor="#000"
         android:textSize="16sp"
         android:visibility="gone"
