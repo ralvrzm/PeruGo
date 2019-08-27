@@ -92,7 +92,7 @@ public class ApplicationModule {
     }
 
     @Provides @Singleton
-    IEventRepository providePostRepository(EventRepositoryImpl eventRepositoryImpl){
+    IEventRepository provideEventRepository(EventRepositoryImpl eventRepositoryImpl){
         return eventRepositoryImpl;
     }
 
