@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -17,6 +19,7 @@ import java.util.Date;
 import javax.inject.Inject;
 
 import pe.edu.pucp.perugopf.data.entities.NewEvent;
+import pe.edu.pucp.perugopf.domain.create_event_firestore_interactor.ICreateEventFirestoreInteractor;
 import pe.edu.pucp.perugopf.presentation.utils.PhotoUtils;
 
 public class CreateEventFirestorePresenter implements ICreateEventFirestoreContract.IPresenter {

@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
@@ -27,8 +26,10 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
+import pe.edu.pucp.perugopf.BuildConfig;
 import pe.edu.pucp.perugopf.R;
 import pe.edu.pucp.perugopf.base.BaseActivity;
+import pe.edu.pucp.perugopf.di.components.DaggerPresentationComponent;
 import pe.edu.pucp.perugopf.di.modules.PresentationModule;
 import pe.edu.pucp.perugopf.presentation.utils.PhotoUtils;
 

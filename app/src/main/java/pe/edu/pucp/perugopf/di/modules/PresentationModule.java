@@ -8,6 +8,16 @@ import io.reactivex.Scheduler;
 import pe.edu.pucp.perugopf.data.repository.IEventFirestoreRepository;
 import pe.edu.pucp.perugopf.data.repository.IEventRepository;
 import pe.edu.pucp.perugopf.di.scope.PerActivity;
+import pe.edu.pucp.perugopf.domain.create_event_firestore_interactor.CreateEventFirestoreInteractorImpl;
+import pe.edu.pucp.perugopf.domain.create_event_firestore_interactor.ICreateEventFirestoreInteractor;
+import pe.edu.pucp.perugopf.domain.event_detail_firestore_interactor.EventDetailFirestoreInteractorImpl;
+import pe.edu.pucp.perugopf.domain.event_detail_firestore_interactor.IEventDetailFirestoreInteractor;
+import pe.edu.pucp.perugopf.domain.event_detail_interactor.EventDetailInteractorImpl;
+import pe.edu.pucp.perugopf.domain.event_detail_interactor.IEventDetailInteractor;
+import pe.edu.pucp.perugopf.domain.events_firestore_interactor.EventFirestoreInteractorImpl;
+import pe.edu.pucp.perugopf.domain.events_firestore_interactor.IEventsFirestoreInteractor;
+import pe.edu.pucp.perugopf.domain.main_interactor.IMainInteractor;
+import pe.edu.pucp.perugopf.domain.main_interactor.MainInteractorImpl;
 
 @Module
 public class PresentationModule {

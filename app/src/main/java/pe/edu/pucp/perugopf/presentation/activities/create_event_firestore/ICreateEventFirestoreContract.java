@@ -18,6 +18,6 @@ public interface ICreateEventFirestoreContract {
 
         boolean isViewAttached();
 
-        void createPost(String title, String content, String path);
+        void createEvent(String title, String content, String path);
     }
 }
