@@ -26,6 +26,8 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
     ImageView ivPhoto;
     TextView textViewTitle;
     TextView textViewBody;
+    TextView tvDireccion;
+    TextView tvFecha;
     ProgressBar pbLoading;
     LinearLayout llContent;
 
@@ -51,6 +53,8 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         ivPhoto = findViewById(R.id.iv_photo);
         textViewTitle = findViewById(R.id.textViewTitle);
         textViewBody = findViewById(R.id.textViewBody);
+        tvDireccion = findViewById(R.id.tvDireccion);
+        tvFecha = findViewById(R.id.tvFecha);
         pbLoading = findViewById(R.id.pb_loading);
         llContent = findViewById(R.id.ll_content);
         presenter.getEvent(getIntent().getStringExtra("event_id"));
@@ -99,6 +103,8 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         }
         textViewTitle.setText(event.getTitle());
         textViewBody.setText(event.getContent());
+        tvDireccion.setText(event.getDireccion());
+        tvFecha.setText(event.getFecha());
     }
 
 

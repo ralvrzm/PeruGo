@@ -10,6 +10,7 @@ public class NewEvent {
     private String fecha;
     private String latitud;
     private String longitud;
+    private String esVisible;
 
     public String getId() {
         return id;
@@ -81,5 +82,13 @@ public class NewEvent {
 
     public void setLongitud(String longitud) {
         this.longitud = longitud;
+    }
+
+    public String getEsVisible() {
+        return esVisible;
+    }
+
+    public void setEsVisible(String esVisible) {
+        this.esVisible = esVisible;
     }
 }
