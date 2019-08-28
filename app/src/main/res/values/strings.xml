@@ -18,8 +18,8 @@
     <string name="no_events">No hay eventos</string>
     <string name="save">Guardar</string>
     <string name="enter_title">Nombre del evento</string>
-    <string name="hint_content">Descripción del evento</string>
-    <string name="hint_direccion">Dirección del evento</string>
+    <string name="hint_content">Descripción </string>
+    <string name="hint_direccion">Dirección </string>
     <string name="content">Descripción:</string>
     <string name="title">Evento:</string>
     <string name="take_photo">Tomar Foto</string>
