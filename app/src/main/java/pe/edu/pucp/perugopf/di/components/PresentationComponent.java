@@ -9,7 +9,6 @@ import pe.edu.pucp.perugopf.presentation.activities.event_detail_firestore.Event
 import pe.edu.pucp.perugopf.presentation.activities.events_firestore.EventsFirestoreActivity;
 import pe.edu.pucp.perugopf.presentation.activities.login.LoginActivity;
 import pe.edu.pucp.perugopf.presentation.activities.main.MainActivity;
-import pe.edu.pucp.perugopf.presentation.activities.menu.MenuActivity;
 import pe.edu.pucp.perugopf.presentation.activities.register.RegisterActivity;
 
 @PerActivity
@@ -22,5 +21,5 @@ public interface PresentationComponent {
     void inject(EventsFirestoreActivity eventsFirestoreActivity);
     void inject(CreateEventFirestoreActivity createEventFirestoreActivity);
     void inject(EventDetailFirestoreActivity eventDetailFirestoreActivity);
-    void inject(MenuActivity menuActivity);
+    //void inject(MenuActivity menuActivity);
 }

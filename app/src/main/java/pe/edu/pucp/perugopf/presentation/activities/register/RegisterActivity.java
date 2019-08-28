@@ -12,7 +12,7 @@ import pe.edu.pucp.perugopf.R;
 import pe.edu.pucp.perugopf.base.BaseActivity;
 import pe.edu.pucp.perugopf.di.components.DaggerPresentationComponent;
 import pe.edu.pucp.perugopf.di.modules.PresentationModule;
-import pe.edu.pucp.perugopf.presentation.activities.menu.MenuActivity;
+import pe.edu.pucp.perugopf.presentation.activities.events_firestore.EventsFirestoreActivity;
 
 public class RegisterActivity extends BaseActivity implements IRegisterContract.IView{
 
@@ -67,9 +67,18 @@ public class RegisterActivity extends BaseActivity implements IRegisterContract.
         hideDialog();
     }
 
+    /*
     @Override
     public void goToMenu() {
         Intent intent = new Intent(getApplicationContext() , MenuActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+     */
+
+    @Override
+    public void goToEvents() {
+        Intent intent = new Intent(getApplicationContext(), EventsFirestoreActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
