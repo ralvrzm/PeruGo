@@ -10,71 +10,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
-            android:text="@string/title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_title" />
-
         <EditText
             android:id="@+id/et_content"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="357dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="26dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="28dp"
             android:ems="10"
             android:gravity="start|top"
             android:hint="@string/hint_content"
             android:inputType="textMultiLine"
-            app:layout_constraintEnd_toEndOf="@+id/et_title"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_title" />
 
         <EditText
             android:id="@+id/et_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
+            android:layout_width="358dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="27dp"
             android:ems="10"
             android:hint="@string/enter_title"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tv_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_save"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
             android:background="@color/colorAccent"
             android:text="@string/save"
             android:textColor="#FFFF"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_content" />
+            app:layout_constraintTop_toBottomOf="@+id/etLongitud" />
 
         <Button
             android:id="@+id/btn_photo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:background="@color/colorPrimary"
             android:drawableStart="@drawable/ic_photo"
             android:paddingStart="20dp"
@@ -82,6 +67,7 @@
             android:text="@string/take_photo"
             android:textColor="#FFFF"
             app:layout_constraintEnd_toEndOf="@+id/btn_save"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/btn_save"
             app:layout_constraintTop_toBottomOf="@+id/btn_save" />
 
@@ -96,5 +82,67 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_photo"
             android:adjustViewBounds="true"
             />
+
+        <EditText
+            android:id="@+id/etFecha"
+            android:layout_width="224dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="@string/hint_fecha_del_evento"
+            android:inputType="date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_content" />
+
+        <EditText
+            android:id="@+id/etDireccion"
+            android:layout_width="357dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="@string/hint_direccion"
+            android:inputType="textPostalAddress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etFecha" />
+
+        <EditText
+            android:id="@+id/etLongitud"
+            android:layout_width="101dp"
+            android:layout_height="38dp"
+            android:ems="10"
+            android:hint="@string/hint_longitud"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toEndOf="@+id/etLatitud"
+            app:layout_constraintTop_toTopOf="@+id/etLatitud" />
+
+        <EditText
+            android:id="@+id/etLatitud"
+            android:layout_width="87dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="@string/hint_latitud"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etDireccion" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="176dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/tvTitulo"
+            android:textAlignment="viewStart"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -17,9 +17,17 @@
     <string name="sign_out">logout</string>
     <string name="no_events">No hay eventos</string>
     <string name="save">Guardar</string>
-    <string name="enter_title">Ingrese título</string>
-    <string name="hint_content">¿Qué estas pensando?</string>
-    <string name="content">Contenido:</string>
-    <string name="title">Título:</string>
+    <string name="enter_title">Nombre del evento</string>
+    <string name="hint_content">Descripción del evento</string>
+    <string name="hint_direccion">Dirección del evento</string>
+    <string name="content">Descripción:</string>
+    <string name="title">Evento:</string>
     <string name="take_photo">Tomar Foto</string>
+    <string name="tvFecha">Fecha</string>
+    <string name="tvDireccion">Dirección</string>
+    <string name="tvUbicacion">Ubicación</string>
+    <string name="hint_latitud">Latitud</string>
+    <string name="hint_longitud">Longitud</string>
+    <string name="tvTitulo">Nuevo evento</string>
+    <string name="hint_fecha_del_evento">Fecha del evento</string>
 </resources>

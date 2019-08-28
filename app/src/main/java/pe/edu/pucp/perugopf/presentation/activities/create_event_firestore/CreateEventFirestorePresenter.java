@@ -53,7 +53,7 @@ public class CreateEventFirestorePresenter implements ICreateEventFirestoreContr
     }
 
     @Override
-    public void createEvent(String title, String content, String path) {
+    public void createEvent(String title, String content, String path, String direccion, String fecha, String latitud, String longitud) {
         view.showProgressDialog();
         if(TextUtils.isEmpty(title) || content.isEmpty()){
             if(isViewAttached()) view.showError("Ingrese datos porfavor");
@@ -77,23 +77,27 @@ public class CreateEventFirestorePresenter implements ICreateEventFirestoreContr
                 public void onComplete(@NonNull Task<Uri> task) {
                     if(task.isSuccessful()){
                         Uri donwloadUri = task.getResult();
-                        createNewEvent(title, content, donwloadUri.toString());
+                        createNewEvent(title, content, donwloadUri.toString(), direccion, fecha, latitud, longitud);
                     }else {
                         if(isViewAttached()) view.showError("Ocurrio un error al subir la imagen");
-                        createNewEvent(title,content,null);
+                        createNewEvent(title,content,null, direccion, fecha, latitud, longitud);
                     }
                 }
             });
         } else {
-            createNewEvent(title,content,null);
+            createNewEvent(title,content,null, direccion, fecha, latitud, longitud);
         }
 
     }
 
-    private void createNewEvent(String title, String content, String path){
+    private void createNewEvent(String title, String content, String path, String direccion, String fecha, String latitud, String longitud){
         NewEvent event = new NewEvent();
         event.setTitle(title);
         event.setContent(content);
+        event.setDireccion(direccion);
+        event.setFecha(fecha);
+        event.setLatitud(latitud);
+        event.setLongitud(longitud);
         event.setUserUid(firebaseAuth.getUid());
         if(path != null && !path.isEmpty()) {
             event.setPathPhoto(path);

@@ -40,6 +40,10 @@ public class CreateEventFirestoreActivity extends BaseActivity implements ICreat
     private Button btnSave;
     private Button btnPhoto;
     private ImageView ivPhoto;
+    private EditText etDireccion;
+    private EditText etFecha;
+    private EditText etLatitud;
+    private EditText etLongitud;
 
     @Inject
     CreateEventFirestorePresenter presenter;
@@ -65,10 +69,19 @@ public class CreateEventFirestoreActivity extends BaseActivity implements ICreat
         btnSave = findViewById(R.id.btn_save);
         btnPhoto = findViewById(R.id.btn_photo);
         ivPhoto = findViewById(R.id.iv_photo);
+        etDireccion = findViewById(R.id.etDireccion);
+        etFecha = findViewById(R.id.etFecha);
+        etLatitud = findViewById(R.id.etLatitud);
+        etLongitud = findViewById(R.id.etLongitud);
+
         btnSave.setOnClickListener(v -> {
             String title = etTitle.getText().toString();
             String content = etContent.getText().toString();
-            presenter.createEvent(title, content, currentPhotoPath);
+            String direccion = etDireccion.getText().toString();
+            String fecha = etFecha.getText().toString();
+            String latitud = etLatitud.getText().toString();
+            String longitud = etLongitud.getText().toString();
+            presenter.createEvent(title, content, currentPhotoPath, direccion, fecha, latitud, longitud);
         });
         btnPhoto.setOnClickListener(v -> openCamera());
     }
