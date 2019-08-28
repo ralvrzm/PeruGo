@@ -41,7 +41,7 @@ public class LoginPresenter implements ILoginContract.IPresenter {
     @Override
     public void checkUserLogged() {
         if(firebaseAuth.getCurrentUser() != null && isViewAttached()){
-            view.goToMenu();
+            view.goToEvents();
         }
     }
 
@@ -56,7 +56,7 @@ public class LoginPresenter implements ILoginContract.IPresenter {
                         if(isViewAttached()){
                             view.hideProgressDialog();
                             if(task.isSuccessful() && task.getResult() != null){
-                                view.goToMenu();
+                                view.goToEvents();
                             } else{
                                 view.showError("Ocurrio un error");
                             }
