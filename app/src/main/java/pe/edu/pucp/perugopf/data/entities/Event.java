@@ -12,6 +12,15 @@ public class Event {
     private String fecha;
     private String latitud;
     private String longitud;
+    private String esVisible;
+
+    public String getEsVisible() {
+        return esVisible;
+    }
+
+    public void setEsVisible(String esVisible) {
+        this.esVisible = esVisible;
+    }
 
     public int getUserId() {
         return userId;

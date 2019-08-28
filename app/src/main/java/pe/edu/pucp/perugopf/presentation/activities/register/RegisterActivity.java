@@ -69,8 +69,8 @@ public class RegisterActivity extends BaseActivity implements IRegisterContract.
 
     /*
     @Override
-    public void goToMenu() {
-        Intent intent = new Intent(getApplicationContext() , MenuActivity.class);
+    public void goToEvents() {
+        Intent intent = new Intent(getApplicationContext() , EventsFirestoreActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }

@@ -99,6 +99,7 @@ public class CreateEventFirestorePresenter implements ICreateEventFirestoreContr
         event.setLatitud(latitud);
         event.setLongitud(longitud);
         event.setUserUid(firebaseAuth.getUid());
+
         if(path != null && !path.isEmpty()) {
             event.setPathPhoto(path);
         }
