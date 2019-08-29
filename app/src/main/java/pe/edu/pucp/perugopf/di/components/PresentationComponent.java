@@ -15,11 +15,12 @@ import pe.edu.pucp.perugopf.presentation.activities.register.RegisterActivity;
 @Component(modules = PresentationModule.class, dependencies = ApplicationComponent.class)
 public interface PresentationComponent {
     void inject(MainActivity mainActivity);
-    void inject(EventDetailActivity eventDetailActivity);
     void inject(LoginActivity loginActivity);
     void inject(RegisterActivity registerActivity);
     void inject(EventsFirestoreActivity eventsFirestoreActivity);
-    void inject(CreateEventFirestoreActivity createEventFirestoreActivity);
     void inject(EventDetailFirestoreActivity eventDetailFirestoreActivity);
-    //void inject(AdminEventsFirestoreActivity adminEventsFirestoreActivity);
+    void inject(CreateEventFirestoreActivity createEventFirestoreActivity);
+
+    void inject(EventDetailActivity eventDetailActivity);
+
 }
