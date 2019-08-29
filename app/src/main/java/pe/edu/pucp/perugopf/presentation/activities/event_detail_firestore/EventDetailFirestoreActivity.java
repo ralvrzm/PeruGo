@@ -1,9 +1,11 @@
 package pe.edu.pucp.perugopf.presentation.activities.event_detail_firestore;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -28,6 +30,7 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
     TextView tvDireccion;
     TextView tvFecha;
     ProgressBar pbLoading;
+    Button btnmaps;
     //LinearLayout llContent;
 
     @Inject
@@ -56,6 +59,7 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         tvFecha = findViewById(R.id.tvFecha);
         pbLoading = findViewById(R.id.pb_loading);
         //llContent = findViewById(R.id.ll_content);
+        btnmaps = findViewById(R.id.btn_maps);
         presenter.getEvent(getIntent().getStringExtra("event_id"));
     }
 
@@ -104,6 +108,13 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         tvDescripcion.setText(event.getContent());
         tvDireccion.setText(event.getDireccion());
         tvFecha.setText(event.getFecha());
+        btnmaps.setOnClickListener(v -> {
+            //Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + object.getLatitude() + "," + object.getLongitude() + "(" + object.getName() + ")");
+            Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + "-15.017005" + "," + "-73.780980" + "(" + "coracora" + ")");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            startActivity(mapIntent);
+        });
     }
 
 
