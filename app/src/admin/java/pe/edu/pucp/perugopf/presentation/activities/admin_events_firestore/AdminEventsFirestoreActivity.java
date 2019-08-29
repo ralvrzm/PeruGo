@@ -1,4 +1,4 @@
-package pe.edu.pucp.perugopf.presentation.activities.events_firestore;
+package pe.edu.pucp.perugopf.presentation.activities.admin_events_firestore;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,10 +25,12 @@ import pe.edu.pucp.perugopf.di.components.DaggerPresentationComponent;
 import pe.edu.pucp.perugopf.di.modules.PresentationModule;
 import pe.edu.pucp.perugopf.presentation.activities.create_event_firestore.CreateEventFirestoreActivity;
 import pe.edu.pucp.perugopf.presentation.activities.event_detail_firestore.EventDetailFirestoreActivity;
+import pe.edu.pucp.perugopf.presentation.activities.events_firestore.EventsFirestorePresenter;
+import pe.edu.pucp.perugopf.presentation.activities.events_firestore.IEventsFirestoreContract;
 import pe.edu.pucp.perugopf.presentation.adapters.NewEventAdapter;
 import pe.edu.pucp.perugopf.presentation.utils.AdapterClickListener;
-
-public class EventsFirestoreActivity extends BaseActivity implements IEventsFirestoreContract.IView{
+/*
+public class AdminEventsFirestoreActivity extends BaseActivity implements IEventsFirestoreContract.IView{
 
     private TextView tvNoEvents;
     private FloatingActionButton fabAdd;
@@ -36,7 +38,7 @@ public class EventsFirestoreActivity extends BaseActivity implements IEventsFire
     private ProgressBar progressBarMain;
     private NewEventAdapter newEventAdapter;
     private List<NewEvent> newEventList;
-    private FloatingActionButton fabCheck;
+    //private FloatingActionButton fabCheck;
 
     @Inject
     EventsFirestorePresenter presenter;
@@ -48,7 +50,7 @@ public class EventsFirestoreActivity extends BaseActivity implements IEventsFire
 
     @Override
     protected int getContentView() {
-        return R.layout.activity_events_firestore;
+        return R.layout.activity_admin_events_firestore;
     }
 
     @Override
@@ -59,7 +61,7 @@ public class EventsFirestoreActivity extends BaseActivity implements IEventsFire
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         tvNoEvents = findViewById(R.id.tv_no_events);
         fabAdd = findViewById(R.id.fab_add);
-        fabCheck = findViewById(R.id.fab_check);
+        //fabCheck = findViewById(R.id.fab_check);
         recyclerViewEvents = findViewById(R.id.recyclerViewEvents);
         progressBarMain = findViewById(R.id.progressBarMain);
         setAdapter();
@@ -151,4 +153,6 @@ public class EventsFirestoreActivity extends BaseActivity implements IEventsFire
         presenter.detachView();
         super.onDetachedFromWindow();
     }
+
+ */
 }

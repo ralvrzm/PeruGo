@@ -21,4 +21,5 @@ public interface PresentationComponent {
     void inject(EventsFirestoreActivity eventsFirestoreActivity);
     void inject(CreateEventFirestoreActivity createEventFirestoreActivity);
     void inject(EventDetailFirestoreActivity eventDetailFirestoreActivity);
+    //void inject(AdminEventsFirestoreActivity adminEventsFirestoreActivity);
 }

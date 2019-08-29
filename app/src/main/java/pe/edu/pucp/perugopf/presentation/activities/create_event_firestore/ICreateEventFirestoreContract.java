@@ -18,6 +18,6 @@ public interface ICreateEventFirestoreContract {
 
         boolean isViewAttached();
 
-        void createEvent(String title, String content, String path, String direccion, String fecha, String latitud, String longitud);
+        void createEvent(String title, String content, String path, String direccion, String fecha, String latitud, String longitud, String indAprobado);
     }
 }

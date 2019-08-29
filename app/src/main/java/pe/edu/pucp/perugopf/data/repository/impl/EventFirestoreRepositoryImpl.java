@@ -36,4 +36,9 @@ public class EventFirestoreRepositoryImpl implements IEventFirestoreRepository {
     public void createEvent(NewEvent event, OnCompleteListener<DocumentReference> onComplete) {
         firestore.collection(FirestoreConstants.COLLECTION_EVENTS).add(event).addOnCompleteListener(onComplete);
     }
+
+    @Override
+    public Query getEventsToApprove() {
+        return firestore.collection(FirestoreConstants.COLLECTION_EVENTS);
+    }
 }

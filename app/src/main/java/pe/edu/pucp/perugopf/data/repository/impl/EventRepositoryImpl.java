@@ -37,4 +37,10 @@ public class EventRepositoryImpl implements IEventRepository {
                 }
         );
     }
+
+    @Override
+    public Observable<List<Event>> getEventsToApprove() {
+        return jsonPlaceHolderApi.getEventsRx();
+    }
+
 }

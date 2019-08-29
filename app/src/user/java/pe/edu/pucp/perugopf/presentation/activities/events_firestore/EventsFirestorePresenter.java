@@ -63,25 +63,27 @@ public class EventsFirestorePresenter implements IEventsFirestoreContract.IPrese
                     for(DocumentChange doc: snapshots.getDocumentChanges()){
                         NewEvent event = doc.getDocument().toObject(NewEvent.class);
                         event.setId(doc.getDocument().getId());
-                        switch (doc.getType()){
-                            case ADDED:
-                                eventList.add(event);
-                                if(isViewAttached()) view.refreshRecyclerView(eventList);
-                                break;
-                            case REMOVED:
-                                index = getIndexEventList(event);
-                                if(index > -1 && isViewAttached()) {
-                                    eventList.remove(index);
-                                    view.refreshRecyclerView(eventList);
-                                }
-                                break;
-                            case MODIFIED:
-                                index = getIndexEventList(event);
-                                if(index > -1 && isViewAttached()) {
-                                    eventList.set(index, event);
-                                    view.refreshRecyclerView(eventList);
-                                }
-                                break;
+                        if (event.getIndAprobado().equals("1")) {//TODO probar si esto está bien
+                            switch (doc.getType()) {
+                                case ADDED:
+                                    eventList.add(event);
+                                    if (isViewAttached()) view.refreshRecyclerView(eventList);
+                                    break;
+                                case REMOVED:
+                                    index = getIndexEventList(event);
+                                    if (index > -1 && isViewAttached()) {
+                                        eventList.remove(index);
+                                        view.refreshRecyclerView(eventList);
+                                    }
+                                    break;
+                                case MODIFIED:
+                                    index = getIndexEventList(event);
+                                    if (index > -1 && isViewAttached()) {
+                                        eventList.set(index, event);
+                                        view.refreshRecyclerView(eventList);
+                                    }
+                                    break;
+                            }
                         }
                     }
                 });

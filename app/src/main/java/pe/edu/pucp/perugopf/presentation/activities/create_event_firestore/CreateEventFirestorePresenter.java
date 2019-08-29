@@ -53,7 +53,7 @@ public class CreateEventFirestorePresenter implements ICreateEventFirestoreContr
     }
 
     @Override
-    public void createEvent(String title, String content, String path, String direccion, String fecha, String latitud, String longitud) {
+    public void createEvent(String title, String content, String path, String direccion, String fecha, String latitud, String longitud, String indAprobado) {
         view.showProgressDialog();
         if(TextUtils.isEmpty(title) || content.isEmpty()){
             if(isViewAttached()) view.showError("Ingrese datos porfavor");
@@ -77,20 +77,20 @@ public class CreateEventFirestorePresenter implements ICreateEventFirestoreContr
                 public void onComplete(@NonNull Task<Uri> task) {
                     if(task.isSuccessful()){
                         Uri donwloadUri = task.getResult();
-                        createNewEvent(title, content, donwloadUri.toString(), direccion, fecha, latitud, longitud);
+                        createNewEvent(title, content, donwloadUri.toString(), direccion, fecha, latitud, longitud, indAprobado);
                     }else {
                         if(isViewAttached()) view.showError("Ocurrio un error al subir la imagen");
-                        createNewEvent(title,content,null, direccion, fecha, latitud, longitud);
+                        createNewEvent(title,content,null, direccion, fecha, latitud, longitud, indAprobado);
                     }
                 }
             });
         } else {
-            createNewEvent(title,content,null, direccion, fecha, latitud, longitud);
+            createNewEvent(title,content,null, direccion, fecha, latitud, longitud, indAprobado);
         }
 
     }
 
-    private void createNewEvent(String title, String content, String path, String direccion, String fecha, String latitud, String longitud){
+    private void createNewEvent(String title, String content, String path, String direccion, String fecha, String latitud, String longitud, String indAprobado){
         NewEvent event = new NewEvent();
         event.setTitle(title);
         event.setContent(content);
@@ -98,6 +98,7 @@ public class CreateEventFirestorePresenter implements ICreateEventFirestoreContr
         event.setFecha(fecha);
         event.setLatitud(latitud);
         event.setLongitud(longitud);
+        event.setIndAprobado(indAprobado);
         event.setUserUid(firebaseAuth.getUid());
 
         if(path != null && !path.isEmpty()) {

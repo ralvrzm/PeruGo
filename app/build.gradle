@@ -19,11 +19,11 @@ android {
     }
 
     flavorDimensions "default"
-    productFlavors{
-        user{
+    productFlavors {
+        user {
             applicationId "pe.edu.pucp.perugopf.user"
         }
-        admin{
+        admin {
             applicationId "pe.edu.pucp.perugopf.admin"
         }
     }

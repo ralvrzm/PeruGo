@@ -12,14 +12,14 @@ public class Event {
     private String fecha;
     private String latitud;
     private String longitud;
-    private String esVisible;
+    private String indAprobado;
 
-    public String getEsVisible() {
-        return esVisible;
+    public String getIndAprobado() {
+        return indAprobado;
     }
 
-    public void setEsVisible(String esVisible) {
-        this.esVisible = esVisible;
+    public void setIndAprobado(String indAprobado) {
+        this.indAprobado = indAprobado;
     }
 
     public int getUserId() {
