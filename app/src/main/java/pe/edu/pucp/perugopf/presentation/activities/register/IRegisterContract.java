@@ -5,7 +5,7 @@ public interface IRegisterContract {
         void showError(String errorMsg);
         void showProgressDialog();
         void hideProgressDialog();
-        void goToMenu();
+        void goToEvents();
     }
     interface IPresenter{
         void attachView(IView view);

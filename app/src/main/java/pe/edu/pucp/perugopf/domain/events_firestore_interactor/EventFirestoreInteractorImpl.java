@@ -19,4 +19,5 @@ public class EventFirestoreInteractorImpl implements IEventsFirestoreInteractor{
     public Query getAllEvent() {
         return repository.getAllEvents();
     }
+
 }

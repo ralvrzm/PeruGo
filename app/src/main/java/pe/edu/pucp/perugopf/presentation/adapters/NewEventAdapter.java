@@ -53,6 +53,7 @@ public class NewEventAdapter extends RecyclerView.Adapter<NewEventAdapter.NewEve
         }
         holder.textViewTitle.setText(event.getTitle());
         holder.textViewBody.setText(event.getContent());
+        holder.tvFecha.setText(event.getFecha());//RAM
     }
 
     @Override
@@ -64,12 +65,14 @@ public class NewEventAdapter extends RecyclerView.Adapter<NewEventAdapter.NewEve
         ImageView ivPhoto;
         TextView textViewTitle;
         TextView textViewBody;
+        TextView tvFecha;//RAM
 
         public NewEventViewHolder(@NonNull View itemView) {
             super(itemView);
             ivPhoto = itemView.findViewById(R.id.iv_photo);
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
             textViewBody = itemView.findViewById(R.id.textViewBody);
+            tvFecha = itemView.findViewById(R.id.tvFecha);//RAM
             itemView.setOnClickListener(v -> clickListener.onClick(getAdapterPosition()));
         }
     }

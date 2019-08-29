@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name="pe.edu.pucp.perugopf.presentation.activities.admin_events_firestore.AdminEventsFirestoreActivity"></activity>
+    </application>
+</manifest>

@@ -9,7 +9,15 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.SignInButton;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 import javax.inject.Inject;
 
@@ -17,16 +25,8 @@ import pe.edu.pucp.perugopf.R;
 import pe.edu.pucp.perugopf.base.BaseActivity;
 import pe.edu.pucp.perugopf.di.components.DaggerPresentationComponent;
 import pe.edu.pucp.perugopf.di.modules.PresentationModule;
-import pe.edu.pucp.perugopf.presentation.activities.menu.MenuActivity;
+import pe.edu.pucp.perugopf.presentation.activities.events_firestore.EventsFirestoreActivity;
 import pe.edu.pucp.perugopf.presentation.activities.register.RegisterActivity;
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends BaseActivity implements ILoginContract.IView{
 
@@ -100,8 +100,8 @@ public class LoginActivity extends BaseActivity implements ILoginContract.IView{
     }
 
     @Override
-    public void goToMenu() {
-        Intent intent = new Intent(getApplicationContext() , MenuActivity.class);
+    public void goToEvents() {
+        Intent intent = new Intent(getApplicationContext() , EventsFirestoreActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
@@ -109,9 +109,7 @@ public class LoginActivity extends BaseActivity implements ILoginContract.IView{
     @Override
     public void onLoginResult(boolean isSuccess) {
         if(isSuccess){
-            /*Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);*/
-            Intent intent = new Intent(getApplicationContext() , MenuActivity.class);
+            Intent intent = new Intent(getApplicationContext() , EventsFirestoreActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
@@ -123,9 +121,7 @@ public class LoginActivity extends BaseActivity implements ILoginContract.IView{
     @Override
     public void onUserLogged(boolean isSuccess) {
         if(isSuccess){
-            /*Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);*/
-            Intent intent = new Intent(getApplicationContext() , MenuActivity.class);
+            Intent intent = new Intent(getApplicationContext(), EventsFirestoreActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }

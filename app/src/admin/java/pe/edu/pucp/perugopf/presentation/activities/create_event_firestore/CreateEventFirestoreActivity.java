@@ -81,7 +81,8 @@ public class CreateEventFirestoreActivity extends BaseActivity implements ICreat
             String fecha = etFecha.getText().toString();
             String latitud = etLatitud.getText().toString();
             String longitud = etLongitud.getText().toString();
-            presenter.createEvent(title, content, currentPhotoPath, direccion, fecha, latitud, longitud);
+            String indAprobado = "1";
+            presenter.createEvent(title, content, currentPhotoPath, direccion, fecha, latitud, longitud, indAprobado);
         });
         btnPhoto.setOnClickListener(v -> openCamera());
     }

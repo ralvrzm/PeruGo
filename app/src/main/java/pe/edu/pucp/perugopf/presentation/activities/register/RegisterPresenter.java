@@ -43,7 +43,7 @@ public class RegisterPresenter implements IRegisterContract.IPresenter {
                     if(isViewAttached()){
                         view.hideProgressDialog();
                         if(task.isSuccessful()){
-                            view.goToMenu();
+                            view.goToEvents();
                         } else {
                             view.showError("Ocurrio un error");
                         }

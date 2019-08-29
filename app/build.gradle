@@ -17,6 +17,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "default"
+    productFlavors {
+        user {
+            applicationId "pe.edu.pucp.perugopf.user"
+        }
+        admin {
+            applicationId "pe.edu.pucp.perugopf.admin"
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
