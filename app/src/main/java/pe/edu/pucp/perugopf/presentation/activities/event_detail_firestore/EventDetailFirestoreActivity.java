@@ -1,9 +1,11 @@
 package pe.edu.pucp.perugopf.presentation.activities.event_detail_firestore;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -20,6 +22,7 @@ import pe.edu.pucp.perugopf.base.BaseActivity;
 import pe.edu.pucp.perugopf.data.entities.NewEvent;
 import pe.edu.pucp.perugopf.di.components.DaggerPresentationComponent;
 import pe.edu.pucp.perugopf.di.modules.PresentationModule;
+import pe.edu.pucp.perugopf.presentation.activities.rx_basic.BasicRxActivity;
 
 public class EventDetailFirestoreActivity extends BaseActivity implements IEventDetailFirestoreContract.IView {
 
@@ -28,7 +31,7 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
     TextView textViewBody;
     ProgressBar pbLoading;
     LinearLayout llContent;
-
+    Button btnmaps;
     @Inject
     EventDetailFirestorePresenter presenter;
 
@@ -53,6 +56,7 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         textViewBody = findViewById(R.id.textViewBody);
         pbLoading = findViewById(R.id.pb_loading);
         llContent = findViewById(R.id.ll_content);
+        btnmaps = findViewById(R.id.btn_maps);
         presenter.getEvent(getIntent().getStringExtra("event_id"));
     }
 
@@ -99,6 +103,13 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         }
         textViewTitle.setText(event.getTitle());
         textViewBody.setText(event.getContent());
+        btnmaps.setOnClickListener(v -> {
+            //Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + object.getLatitude() + "," + object.getLongitude() + "(" + object.getName() + ")");
+            Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + "-15.017005" + "," + "-73.780980" + "(" + "coracora" + ")");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            startActivity(mapIntent);
+        });
     }
 
 

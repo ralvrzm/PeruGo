@@ -30,4 +30,5 @@
     <string name="hint_longitud">Longitud</string>
     <string name="tvTitulo">Nuevo evento</string>
     <string name="hint_fecha_del_evento">Fecha del evento</string>
+    <string name="abrir_maps">Abrir en google maps</string>
 </resources>
