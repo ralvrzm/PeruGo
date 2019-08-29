@@ -63,7 +63,7 @@ public class EventsFirestorePresenter implements IEventsFirestoreContract.IPrese
                     for(DocumentChange doc: snapshots.getDocumentChanges()){
                         NewEvent event = doc.getDocument().toObject(NewEvent.class);
                         event.setId(doc.getDocument().getId());
-                        if (event.getIndAprobado().equals("1")) {//TODO probar si esto está bien
+                        if (event.getIndAprobado().equals("1")) {
                             switch (doc.getType()) {
                                 case ADDED:
                                     eventList.add(event);

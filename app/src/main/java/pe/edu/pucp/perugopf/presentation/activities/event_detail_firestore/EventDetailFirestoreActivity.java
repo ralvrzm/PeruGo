@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,12 +23,12 @@ import pe.edu.pucp.perugopf.di.modules.PresentationModule;
 public class EventDetailFirestoreActivity extends BaseActivity implements IEventDetailFirestoreContract.IView {
 
     ImageView ivPhoto;
-    TextView textViewTitle;
-    TextView textViewBody;
+    TextView tvTitulo;
+    TextView tvDescripcion;
     TextView tvDireccion;
     TextView tvFecha;
     ProgressBar pbLoading;
-    LinearLayout llContent;
+    //LinearLayout llContent;
 
     @Inject
     EventDetailFirestorePresenter presenter;
@@ -50,13 +49,13 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         presenter.attachView(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        ivPhoto = findViewById(R.id.iv_photo);
-        textViewTitle = findViewById(R.id.textViewTitle);
-        textViewBody = findViewById(R.id.textViewBody);
+        ivPhoto = findViewById(R.id.ivPhoto);
+        tvTitulo = findViewById(R.id.tvTitulo);
+        tvDescripcion = findViewById(R.id.tvDescripcion);
         tvDireccion = findViewById(R.id.tvDireccion);
         tvFecha = findViewById(R.id.tvFecha);
         pbLoading = findViewById(R.id.pb_loading);
-        llContent = findViewById(R.id.ll_content);
+        //llContent = findViewById(R.id.ll_content);
         presenter.getEvent(getIntent().getStringExtra("event_id"));
     }
 
@@ -91,7 +90,7 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
 
     @Override
     public void getEventDetailSuccess(NewEvent event) {
-        llContent.setVisibility(View.VISIBLE);
+        //llContent.setVisibility(View.VISIBLE);
         if(event.getPathPhoto() != null && !event.getPathPhoto().isEmpty()){
             Glide.with(getApplicationContext())
                     .load(event.getPathPhoto())
@@ -101,8 +100,8 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         } else {
             ivPhoto.setVisibility(View.GONE);
         }
-        textViewTitle.setText(event.getTitle());
-        textViewBody.setText(event.getContent());
+        tvTitulo.setText(event.getTitle());
+        tvDescripcion.setText(event.getContent());
         tvDireccion.setText(event.getDireccion());
         tvFecha.setText(event.getFecha());
     }
