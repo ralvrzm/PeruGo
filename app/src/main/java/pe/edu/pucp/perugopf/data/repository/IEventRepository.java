@@ -11,5 +11,4 @@ public interface IEventRepository {
 
     Observable<EventDetail> getEventDetail(int eventId);
 
-    Observable<List<Event>> getEventsToApprove();
 }

@@ -12,7 +12,7 @@ public interface IEventFirestoreRepository {
 
     void getEvent(String uid,  OnCompleteListener<DocumentSnapshot> onComplete);
 
-    void createEvent(NewEvent post, OnCompleteListener<DocumentReference> onComplete);
+    void createEvent(NewEvent event, OnCompleteListener<DocumentReference> onComplete);
 
-    Query getEventsToApprove();
+    void updateEvent(String uid, OnCompleteListener<DocumentReference> onComplete);
 }

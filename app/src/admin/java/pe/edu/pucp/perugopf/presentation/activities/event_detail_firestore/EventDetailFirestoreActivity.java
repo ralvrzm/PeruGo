@@ -1,9 +1,11 @@
 package pe.edu.pucp.perugopf.presentation.activities.event_detail_firestore;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -31,6 +33,7 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
     ProgressBar pbLoading;
     private FloatingActionButton fabRefuse;
     private FloatingActionButton fabApprove;
+    Button btnmaps;
 
     String idEvent;
 
@@ -62,7 +65,11 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         tvDireccion = findViewById(R.id.tvDireccion);
         tvFecha = findViewById(R.id.tvFecha);
         pbLoading = findViewById(R.id.pb_loading);
+        btnmaps = findViewById(R.id.btn_maps);
         presenter.getEvent(idEvent);
+
+        fabRefuse = findViewById(R.id.fab_refuse);
+        fabApprove = findViewById(R.id.fab_approve);
     }
 
     @Override
@@ -109,6 +116,17 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         tvDescripcion.setText(event.getContent());
         tvDireccion.setText(event.getDireccion());
         tvFecha.setText(event.getFecha());
+
+        btnmaps.setOnClickListener(v -> {
+            //Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + object.getLatitude() + "," + object.getLongitude() + "(" + object.getName() + ")");
+            //Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + "-15.017005" + "," + "-73.780980" + "(" + "coracora" + ")");
+            Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + event.getLatitud() + "," + event.getLongitud() + "(" + "Ubicación" + ")");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            startActivity(mapIntent);
+        });
+
+        setListeners();
     }
 
     private void setListeners(){
@@ -120,9 +138,10 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         });
 
         fabApprove.setOnClickListener(v -> {
-            Toast.makeText(EventDetailFirestoreActivity.this,"Evento aprobado", Toast.LENGTH_SHORT).show();
             String newEstate = "1";
             presenter.updateEvent(idEvent, newEstate);
+
+            Toast.makeText(EventDetailFirestoreActivity.this,"Evento aprobado", Toast.LENGTH_SHORT).show();
         });
 
     }

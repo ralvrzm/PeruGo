@@ -65,7 +65,7 @@ public class EventDetailFirestorePresenter implements IEventDetailFirestoreContr
                 if (task.isSuccessful()) {
                     NewEvent event = task.getResult().toObject(NewEvent.class);
                     event.setIndAprobado(newEstate);
-                    view.getEventDetailSuccess(event);
+                    view.getEventDetailSuccess(event);//TODO reemplazar para que llame la lista de eventos
                 } else {
                     view.showError(task.getException().getMessage());
                 }

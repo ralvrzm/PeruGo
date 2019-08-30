@@ -1,9 +1,11 @@
 package pe.edu.pucp.perugopf.presentation.activities.event_detail_firestore;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -28,7 +30,7 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
     TextView tvDireccion;
     TextView tvFecha;
     ProgressBar pbLoading;
-    //LinearLayout llContent;
+    Button btnmaps;
 
     @Inject
     EventDetailFirestorePresenter presenter;
@@ -55,7 +57,7 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         tvDireccion = findViewById(R.id.tvDireccion);
         tvFecha = findViewById(R.id.tvFecha);
         pbLoading = findViewById(R.id.pb_loading);
-        //llContent = findViewById(R.id.ll_content);
+        btnmaps = findViewById(R.id.btn_maps);
         presenter.getEvent(getIntent().getStringExtra("event_id"));
     }
 
@@ -104,6 +106,15 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         tvDescripcion.setText(event.getContent());
         tvDireccion.setText(event.getDireccion());
         tvFecha.setText(event.getFecha());
+
+        btnmaps.setOnClickListener(v -> {
+            //Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + object.getLatitude() + "," + object.getLongitude() + "(" + object.getName() + ")");
+            Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + event.getLatitud() + "," + event.getLongitud() + "(" + "Ubicación" + ")");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            startActivity(mapIntent);
+        });
+
     }
 
 
