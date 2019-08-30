@@ -38,8 +38,9 @@ public class EventFirestoreRepositoryImpl implements IEventFirestoreRepository {
     }
 
     @Override
-    public void updateEvent(String uid, OnCompleteListener<DocumentReference> onComplete) {
-        firestore.collection(FirestoreConstants.COLLECTION_EVENTS).document(uid).update("indAprobado", "1");
+    public void updateEvent(NewEvent event, OnCompleteListener<DocumentReference> onComplete) {
+        //firestore.collection(FirestoreConstants.COLLECTION_EVENTS).document(event.getId()).update("indAprobado", event.getIndAprobado());
+        firestore.collection(FirestoreConstants.COLLECTION_EVENTS).document(event.getId()).update("indAprobado", "-1");
     }
 
 }

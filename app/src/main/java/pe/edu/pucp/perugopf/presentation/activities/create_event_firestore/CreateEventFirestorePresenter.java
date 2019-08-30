@@ -20,6 +20,7 @@ import javax.inject.Inject;
 
 import pe.edu.pucp.perugopf.data.entities.NewEvent;
 import pe.edu.pucp.perugopf.domain.create_event_firestore_interactor.ICreateEventFirestoreInteractor;
+import pe.edu.pucp.perugopf.presentation.activities.event_detail_firestore.EventDetailFirestorePresenter;
 import pe.edu.pucp.perugopf.presentation.utils.PhotoUtils;
 
 public class CreateEventFirestorePresenter implements ICreateEventFirestoreContract.IPresenter {
@@ -32,6 +33,9 @@ public class CreateEventFirestorePresenter implements ICreateEventFirestoreContr
     FirebaseAuth firebaseAuth;
     @Inject
     FirebaseStorage storage;
+
+    @Inject
+    EventDetailFirestorePresenter detallePresenter; // RAM
 
     @Inject
     public CreateEventFirestorePresenter() {
@@ -118,6 +122,14 @@ public class CreateEventFirestorePresenter implements ICreateEventFirestoreContr
 
     @Override
     public void updateEvent(String id, String newState) {
+        detallePresenter.getEvent(id);
+
+
+    }
+
+    /*
+    @Override
+    public void updateEvent(String id, String newState) {
         interactor.updateEvent(id, task -> {
             if(isViewAttached()) {
                 view.hideProgressDialog();
@@ -129,5 +141,7 @@ public class CreateEventFirestorePresenter implements ICreateEventFirestoreContr
             }
         });
     }
+
+     */
 }
 

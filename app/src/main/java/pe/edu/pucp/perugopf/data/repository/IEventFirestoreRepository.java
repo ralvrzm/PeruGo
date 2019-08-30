@@ -14,5 +14,5 @@ public interface IEventFirestoreRepository {
 
     void createEvent(NewEvent event, OnCompleteListener<DocumentReference> onComplete);
 
-    void updateEvent(String uid, OnCompleteListener<DocumentReference> onComplete);
+    void updateEvent(NewEvent event, OnCompleteListener<DocumentReference> onComplete);
 }
