@@ -134,7 +134,7 @@ public class EventsFirestoreActivity extends BaseActivity implements IEventsFire
     @Override
     public void gotToDetailEvent(String eventUid) {
         Intent intent = new Intent(this, EventDetailFirestoreActivity.class);
-        intent.putExtra("event_id", eventUid);
+        intent.putExtra("idEvent", eventUid);
         startActivity(intent);
     }
 

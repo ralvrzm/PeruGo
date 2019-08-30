@@ -21,7 +21,7 @@
             android:id="@+id/iv_photo"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:src="@drawable/logo_cibertec"
+            android:src="@drawable/logo_perugo"
             android:scaleType="centerCrop"
             />
         <TextView
