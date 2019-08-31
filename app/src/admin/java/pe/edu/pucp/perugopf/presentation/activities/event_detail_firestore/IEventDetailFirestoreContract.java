@@ -18,5 +18,6 @@ public interface IEventDetailFirestoreContract {
         boolean isViewAttached();
         void getEvent(String id);
         void updateEvent(String id, String newEstate);
+        void showEvents();
     }
 }

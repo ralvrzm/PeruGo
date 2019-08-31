@@ -74,9 +74,19 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         fabApprove = findViewById(R.id.fab_approve);
 
         // Estos botones actualizarán el estado del evento
-        fabApprove.setOnClickListener(v -> presenter.updateEvent(idEvent, ESTADO_APROBADO));
+        fabApprove.setOnClickListener(v -> {
+            presenter.updateEvent(idEvent, ESTADO_APROBADO);
+            Toast.makeText(getApplicationContext(), "Evento aprobado.", Toast.LENGTH_SHORT).show();
+            onSuccessCreate();
+        });
 
-        fabRefuse.setOnClickListener(v -> presenter.updateEvent(idEvent, ESTADO_RECHAZADO));
+        fabRefuse.setOnClickListener(v -> {
+            presenter.updateEvent(idEvent, ESTADO_RECHAZADO);
+            Toast.makeText(getApplicationContext(), "Evento rechazado.", Toast.LENGTH_SHORT).show();
+            onSuccessCreate();
+        });
+
+        presenter.getEvent(idEvent);
     }
 
     @Override
@@ -140,8 +150,10 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
 
     @Override
     public void onSuccessCreate() {
-        Toast.makeText(getApplicationContext(), "Estado del evento actualizado.", Toast.LENGTH_SHORT).show();
-        finish();
+        // TODO: Revisar, cuando se llama esto se cae, debe ser que no tiene referencia a la lista de eventos
+        // Luego de actualizar el evento regresa a la lista de eventos.
+        presenter.showEvents();
+        //finish();
     }
 
     @Override
