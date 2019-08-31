@@ -37,6 +37,9 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
 
     String idEvent;
 
+    private static final String ESTADO_APROBADO = "1";
+    private static final String ESTADO_RECHAZADO = "-1";
+
     @Inject
     EventDetailFirestorePresenter presenter;
 
@@ -66,18 +69,14 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         tvFecha = findViewById(R.id.tvFecha);
         pbLoading = findViewById(R.id.pb_loading);
         btnmaps = findViewById(R.id.btn_maps);
-        presenter.getEvent(idEvent);
 
         fabRefuse = findViewById(R.id.fab_refuse);
         fabApprove = findViewById(R.id.fab_approve);
 
-        fabApprove.setOnClickListener(v -> {
-           presenter.updateEvent(idEvent, "1");
-        });
+        // Estos botones actualizarán el estado del evento
+        fabApprove.setOnClickListener(v -> presenter.updateEvent(idEvent, ESTADO_APROBADO));
 
-        fabRefuse.setOnClickListener(v -> {
-            presenter.updateEvent(idEvent, "-1");
-        });
+        fabRefuse.setOnClickListener(v -> presenter.updateEvent(idEvent, ESTADO_RECHAZADO));
     }
 
     @Override
@@ -126,7 +125,6 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         tvFecha.setText(event.getFecha());
 
         btnmaps.setOnClickListener(v -> {
-            //Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + object.getLatitude() + "," + object.getLongitude() + "(" + object.getName() + ")");
             //Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + "-15.017005" + "," + "-73.780980" + "(" + "coracora" + ")");
             Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + event.getLatitud() + "," + event.getLongitud() + "(" + "Ubicación" + ")");
             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);

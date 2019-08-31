@@ -58,7 +58,8 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         tvFecha = findViewById(R.id.tvFecha);
         pbLoading = findViewById(R.id.pb_loading);
         btnmaps = findViewById(R.id.btn_maps);
-        presenter.getEvent(getIntent().getStringExtra("event_id"));
+
+        presenter.getEvent(getIntent().getStringExtra("idEvent"));
     }
 
     @Override

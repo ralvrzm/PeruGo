@@ -31,7 +31,6 @@ public class EventFirestoreRepositoryImpl implements IEventFirestoreRepository {
         firestore.collection(FirestoreConstants.COLLECTION_EVENTS).document(uid).get().addOnCompleteListener(onComplete);
     }
 
-
     @Override
     public void createEvent(NewEvent event, OnCompleteListener<DocumentReference> onComplete) {
         firestore.collection(FirestoreConstants.COLLECTION_EVENTS).add(event).addOnCompleteListener(onComplete);
@@ -39,8 +38,7 @@ public class EventFirestoreRepositoryImpl implements IEventFirestoreRepository {
 
     @Override
     public void updateEvent(NewEvent event, OnCompleteListener<DocumentReference> onComplete) {
-        //firestore.collection(FirestoreConstants.COLLECTION_EVENTS).document(event.getId()).update("indAprobado", event.getIndAprobado());
-        firestore.collection(FirestoreConstants.COLLECTION_EVENTS).document(event.getId()).update("indAprobado", "-1");
+        firestore.collection(FirestoreConstants.COLLECTION_EVENTS).document(event.getId()).update("indAprobado", event.getIndAprobado());
     }
 
 }
