@@ -13,6 +13,6 @@ public interface IEventDetailFirestoreContract {
         void attachView(IView view);
         void detachView();
         boolean isViewAttached();
-        void getEvent(String id);
+        void getEvent(String event_id);
     }
 }

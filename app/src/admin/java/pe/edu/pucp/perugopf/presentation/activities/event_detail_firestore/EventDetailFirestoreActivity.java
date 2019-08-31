@@ -70,6 +70,14 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
 
         fabRefuse = findViewById(R.id.fab_refuse);
         fabApprove = findViewById(R.id.fab_approve);
+
+        fabApprove.setOnClickListener(v -> {
+           presenter.updateEvent(idEvent, "1");
+        });
+
+        fabRefuse.setOnClickListener(v -> {
+            presenter.updateEvent(idEvent, "-1");
+        });
     }
 
     @Override
@@ -125,25 +133,17 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
             mapIntent.setPackage("com.google.android.apps.maps");
             startActivity(mapIntent);
         });
-
-        setListeners();
     }
 
-    private void setListeners(){
+    @Override
+    public void hideProgressDialog() {
+        hideDialog();
+    }
 
-        fabRefuse.setOnClickListener(v -> {
-            Toast.makeText(EventDetailFirestoreActivity.this,"Evento rechazado", Toast.LENGTH_SHORT).show();
-            String newEstate = "-1";
-            presenter.updateEvent(idEvent, newEstate);
-        });
-
-        fabApprove.setOnClickListener(v -> {
-            String newEstate = "1";
-            presenter.updateEvent(idEvent, newEstate);
-
-            Toast.makeText(EventDetailFirestoreActivity.this,"Evento aprobado", Toast.LENGTH_SHORT).show();
-        });
-
+    @Override
+    public void onSuccessCreate() {
+        Toast.makeText(getApplicationContext(), "Estado del evento actualizado.", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override

@@ -8,6 +8,9 @@ public interface IEventDetailFirestoreContract {
         void showProgressBar();
         void hideProgressBar();
         void getEventDetailSuccess(NewEvent event);
+
+        void hideProgressDialog();
+        void onSuccessCreate();
     }
     interface IPresenter{
         void attachView(IView view);

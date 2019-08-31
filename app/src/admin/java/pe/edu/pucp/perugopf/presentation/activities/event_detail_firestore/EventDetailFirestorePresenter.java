@@ -58,14 +58,15 @@ public class EventDetailFirestorePresenter implements IEventDetailFirestoreContr
             view.showError("No hay id de Event");
             return;
         }
-        view.showProgressBar();
-        interactor.getEvent(id, task -> {
+        NewEvent event = new NewEvent();
+        event.setId(id);
+        event.setIndAprobado(newEstate);
+
+        interactor.updateEvent(event, task -> {
             if(isViewAttached()) {
-                view.hideProgressBar();
+                view.hideProgressDialog();
                 if (task.isSuccessful()) {
-                    NewEvent event = task.getResult().toObject(NewEvent.class);
-                    event.setIndAprobado(newEstate);
-                    view.getEventDetailSuccess(event);//TODO reemplazar para que llame la lista de eventos
+                    view.onSuccessCreate();
                 } else {
                     view.showError(task.getException().getMessage());
                 }

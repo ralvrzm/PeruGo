@@ -119,29 +119,5 @@ public class CreateEventFirestorePresenter implements ICreateEventFirestoreContr
             }
         });
     }
-
-    @Override
-    public void updateEvent(String id, String newState) {
-        detallePresenter.getEvent(id);
-
-
-    }
-
-    /*
-    @Override
-    public void updateEvent(String id, String newState) {
-        interactor.updateEvent(id, task -> {
-            if(isViewAttached()) {
-                view.hideProgressDialog();
-                if (task.isSuccessful()) {
-                    view.onSuccessCreate();
-                } else {
-                    view.showError(task.getException().getMessage());
-                }
-            }
-        });
-    }
-
-     */
 }
 

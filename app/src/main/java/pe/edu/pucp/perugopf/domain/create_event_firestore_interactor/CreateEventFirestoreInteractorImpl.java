@@ -21,9 +21,4 @@ public class CreateEventFirestoreInteractorImpl implements ICreateEventFirestore
     public void createEvent(NewEvent event, OnCompleteListener<DocumentReference> onComplete) {
         repository.createEvent(event, onComplete);
     }
-
-    @Override
-    public void updateEvent(NewEvent event, OnCompleteListener<DocumentReference> onComplete) {
-        repository.updateEvent(event, onComplete);
-    }
 }

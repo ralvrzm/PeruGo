@@ -7,6 +7,4 @@ import pe.edu.pucp.perugopf.data.entities.NewEvent;
 
 public interface ICreateEventFirestoreInteractor {
     void createEvent(NewEvent event, OnCompleteListener<DocumentReference> onComplete);
-
-    void updateEvent(NewEvent event, OnCompleteListener<DocumentReference> onComplete);
 }
