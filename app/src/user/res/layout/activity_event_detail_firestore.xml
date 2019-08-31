@@ -35,7 +35,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo_perugo" />
+                app:srcCompat="@drawable/logo_perugo_white" />
 
             <ProgressBar
                 android:id="@+id/pb_loading"

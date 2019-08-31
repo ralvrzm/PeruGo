@@ -13,7 +13,7 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="180dp"
-        android:src="@drawable/logo_cibertec_white"
+        android:src="@drawable/logo_perugo_white"
         android:adjustViewBounds="true"/>
 
     <EditText

@@ -97,7 +97,7 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
             Glide.with(getApplicationContext())
                     .load(event.getPathPhoto())
                     .apply(new RequestOptions()
-                            .placeholder(R.drawable.logo_perugo))
+                            .placeholder(R.drawable.logo_perugo_white))
                     .into(ivPhoto);
         } else {
             ivPhoto.setVisibility(View.GONE);

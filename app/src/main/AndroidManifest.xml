@@ -11,10 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.activities.menu.MenuActivity"></activity>
 
         <activity android:name=".presentation.activities.create_event_firestore.CreateEventFirestoreActivity" />
-
         <activity android:name=".presentation.activities.event_detail_firestore.EventDetailFirestoreActivity" />
         <activity android:name=".presentation.activities.events_firestore.EventsFirestoreActivity" />
         <activity

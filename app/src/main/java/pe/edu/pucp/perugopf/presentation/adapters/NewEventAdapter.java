@@ -46,7 +46,7 @@ public class NewEventAdapter extends RecyclerView.Adapter<NewEventAdapter.NewEve
             Glide.with(holder.itemView.getContext())
                     .load(event.getPathPhoto())
                     .apply(new RequestOptions()
-                            .placeholder(R.drawable.logo_perugo))
+                            .placeholder(R.drawable.logo_perugo_white))
                     .into(holder.ivPhoto);
         } else {
             holder.ivPhoto.setVisibility(View.GONE);

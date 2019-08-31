@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PeruGoPF</string>
+    <string name="app_name">PeruGo</string>
 
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>

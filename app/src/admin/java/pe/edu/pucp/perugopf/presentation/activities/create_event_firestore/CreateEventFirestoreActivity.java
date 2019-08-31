@@ -193,7 +193,7 @@ public class CreateEventFirestoreActivity extends BaseActivity implements ICreat
         if(requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK){
             Glide.with(getApplicationContext())
                     .load(mPhotoFile)
-                    .apply(new RequestOptions().placeholder(R.drawable.logo_perugo))
+                    .apply(new RequestOptions().placeholder(R.drawable.logo_perugo_white))
                     .into(ivPhoto);
         }
     }

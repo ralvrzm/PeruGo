@@ -4,7 +4,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/logo_perugo" />
+            android:src="@drawable/logo_perugo_white" />
     </item>
 
 </layer-list>
