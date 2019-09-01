@@ -109,8 +109,7 @@ public class EventDetailFirestoreActivity extends BaseActivity implements IEvent
         tvFecha.setText(event.getFecha());
 
         btnmaps.setOnClickListener(v -> {
-            Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + "-15.017005" + "," + "-73.780980" + "(" + "coracora" + ")");
-            //Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + event.getLatitud() + "," + event.getLongitud() + "(" + "Ubicación" + ")");
+            Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + event.getLatitud() + "," + event.getLongitud() + "(" + event.getTitle() + ")");
             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
             mapIntent.setPackage("com.google.android.apps.maps");
             startActivity(mapIntent);
